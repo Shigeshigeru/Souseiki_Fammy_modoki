@@ -117,6 +117,7 @@ NROM最大PRG-ROM 32KB＋CHR-ROM 8KB**(多分
 
 参考サイト  
 https://www.nesdev.org/wiki/Souseiki_Fammy  
+https://forums.nesdev.org/viewtopic.php?t=26064  
 
 マッパー0(NROM)のリスト  
 https://nesdir.github.io/mapper0.html
