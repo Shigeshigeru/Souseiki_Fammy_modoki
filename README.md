@@ -20,6 +20,12 @@
 <img width="301" height="240" alt="Ikki_FDS (4)_003" src="https://github.com/user-attachments/assets/33c9b805-3048-4a8a-848e-76c32ea015bc" />  
 <img width="301" height="240" alt="Ikki_FDS (4)_004" src="https://github.com/user-attachments/assets/23c57955-9d8d-49eb-a3bd-343f6204eecb" />  
 
+バトルシティーも動作しました！！  
+こちらは少し複雑だったようです  
+一応動作確認はしましたが自分は特に問題感じませんでした  
+バルーンファイトもバトルシティーと同じ位置にプログラムがあり  
+BIOSと重なるのでその辺りを移動変更させての動作の模様です  
+
 **A面バトルシティー、B面バルーンファイトの
 テンプレートも用意しておきます！！(コレは絶対必須)**  
 バルトロンは個人的に必須なので対応予定  
