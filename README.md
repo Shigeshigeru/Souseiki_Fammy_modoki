@@ -22,3 +22,6 @@
 
 参考サイト  
 https://www.nesdev.org/wiki/Souseiki_Fammy
+
+BAKUTEDOさんの創世紀ファミーの記事(分かりやすい！！)  
+https://bakutendo.net/blog-entry-415.html
