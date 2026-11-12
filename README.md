@@ -14,9 +14,12 @@
 最初に指定するの忘れていたためFDS内部のファイル名に  
 8文字以上使おうとして失敗していました  
 (いっきはikkiなので文字数が少なくて問題なかったようです  
+いっきβ Ver    
 <img width="526" height="120" alt="スクリーンショット 2026-11-12 205445" src="https://github.com/user-attachments/assets/f0d6d33c-39e0-4f0d-ab27-acfad0921653" />  
+バトルシティーβ Ver  
+<img width="527" height="126" alt="スクリーンショット 2026-11-13 003846" src="https://github.com/user-attachments/assets/56d2c876-45bc-4ec1-8852-e5dcd93843fb" />
 
-「いっき」は動作しました(AVファミコン実機とFDSkeyでも動作確認)    
+「いっき」動作しました(AVファミコン実機とFDSkeyでも動作確認)    
 
 <img width="301" height="240" alt="Ikki_FDS (4)_001" src="https://github.com/user-attachments/assets/7cc35e61-66bd-42b1-9889-75c4c8ebb8b1" />  
 <img width="301" height="240" alt="Ikki_FDS (4)_002" src="https://github.com/user-attachments/assets/41745f50-7efa-41d2-b26c-8d362fb9ae7a" />  
