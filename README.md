@@ -51,7 +51,10 @@ QDからFDSに変換するツール等があるので
 NROM最大PRG-ROM 32KB＋CHR-ROM 8KB**(多分  
 
 参考サイト  
-https://www.nesdev.org/wiki/Souseiki_Fammy
+https://www.nesdev.org/wiki/Souseiki_Fammy  
+
+マッパー0(NROM)のリスト  
+https://nesdir.github.io/mapper0.html
 
 BAKUTEDOさんの創世紀ファミーの記事(分かりやすい！！)  
 https://bakutendo.net/blog-entry-415.html
