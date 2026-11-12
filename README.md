@@ -34,7 +34,7 @@ AIのサポートなしでは無理レベルでした・・・(´･д･`)
 <img width="301" height="240" alt="Ikki_FDS (4)_003" src="https://github.com/user-attachments/assets/33c9b805-3048-4a8a-848e-76c32ea015bc" />  
 <img width="301" height="240" alt="Ikki_FDS (4)_004" src="https://github.com/user-attachments/assets/23c57955-9d8d-49eb-a3bd-343f6204eecb" />  
 
-バトルシティーも動作しました！！(序盤の動作確認のみ)  
+**バトルシティーも動作しました！！(序盤の動作確認のみ)**  
 
 <img width="301" height="240" alt="BattleCity_FDS_005" src="https://github.com/user-attachments/assets/87312b69-7519-451d-ac9a-8bd271582806" />
 <img width="301" height="240" alt="BattleCity_FDS_007" src="https://github.com/user-attachments/assets/73bf58de-c1ad-4d64-83f6-8d182524e02f" />
@@ -45,7 +45,7 @@ AIのサポートなしでは無理レベルでした・・・(´･д･`)
 バルーンファイトもバトルシティーと同じ位置にプログラムがあり  
 BIOSと重なるのでその辺りを移動変更させての動作の模様です  
 
-バルーンファイトも動くようになりました！(序盤の動作確認のみ)  
+**バルーンファイトも動くようになりました！(序盤の動作確認のみ)**  
 <img width="301" height="240" alt="BalloonFight_FDS_001" src="https://github.com/user-attachments/assets/53a2ef05-8746-4e08-a113-4cfa4a96be25" />
 <img width="301" height="240" alt="BalloonFight_FDS_002" src="https://github.com/user-attachments/assets/344f365b-09c7-49f2-b84f-408fff6bdb62" />
 <img width="301" height="240" alt="BalloonFight_FDS_003" src="https://github.com/user-attachments/assets/3d178ad9-4394-40b3-ab13-4d63ece9aacc" />
