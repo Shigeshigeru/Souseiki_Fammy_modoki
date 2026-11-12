@@ -24,6 +24,10 @@
 <img width="301" height="240" alt="Ikki_FDS (4)_004" src="https://github.com/user-attachments/assets/23c57955-9d8d-49eb-a3bd-343f6204eecb" />  
 
 バトルシティーも動作しました！！  
+<img width="301" height="240" alt="BattleCity_FDS_005" src="https://github.com/user-attachments/assets/87312b69-7519-451d-ac9a-8bd271582806" />
+<img width="301" height="240" alt="BattleCity_FDS_007" src="https://github.com/user-attachments/assets/73bf58de-c1ad-4d64-83f6-8d182524e02f" />
+<img width="301" height="240" alt="BattleCity_FDS_009" src="https://github.com/user-attachments/assets/81028e30-a1f4-4b27-8d54-e39ac5e0b8d1" />
+
 こちらは少し複雑だったようです  
 一応動作確認はしましたが自分は特に問題感じませんでした  
 バルーンファイトもバトルシティーと同じ位置にプログラムがあり  
