@@ -9,11 +9,11 @@
 めんどくさいのでAIに手伝ってもらいながら  
 自分もお勉強して変換プログラムが完成されるのが目標です  
 
-<img width="526" height="120" alt="スクリーンショット 2026-11-12 205445" src="https://github.com/user-attachments/assets/f0d6d33c-39e0-4f0d-ab27-acfad0921653" />
+<img width="526" height="120" alt="スクリーンショット 2026-11-12 205445" src="https://github.com/user-attachments/assets/f0d6d33c-39e0-4f0d-ab27-acfad0921653" />  
 
 「いっき」は動作しました  
 
-<img width="301" height="240" alt="Ikki_FDS (4)_001" src="https://github.com/user-attachments/assets/7cc35e61-66bd-42b1-9889-75c4c8ebb8b1" />    
+<img width="301" height="240" alt="Ikki_FDS (4)_001" src="https://github.com/user-attachments/assets/7cc35e61-66bd-42b1-9889-75c4c8ebb8b1" />  
 <img width="301" height="240" alt="Ikki_FDS (4)_002" src="https://github.com/user-attachments/assets/41745f50-7efa-41d2-b26c-8d362fb9ae7a" />  
 <img width="301" height="240" alt="Ikki_FDS (4)_003" src="https://github.com/user-attachments/assets/33c9b805-3048-4a8a-848e-76c32ea015bc" />  
 <img width="301" height="240" alt="Ikki_FDS (4)_004" src="https://github.com/user-attachments/assets/23c57955-9d8d-49eb-a3bd-343f6204eecb" />  
