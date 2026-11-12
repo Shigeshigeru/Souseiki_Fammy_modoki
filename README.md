@@ -9,6 +9,10 @@
 めんどくさいのでAIに手伝ってもらいながら  
 自分もお勉強して変換プログラムが完成されるのが目標です  
 
+**完成するまでツールは公開されません！！
+首を長くしてお待ちください  
+お布施があれば早く完成します**  
+
 モドキなので最終的にファイル名はゲーム名みたいにならなくなります  
 (再現しなくてもいい  
 現状は自分の確認のためカセットのゲーム名から取っています　　
@@ -22,7 +26,7 @@
 バトルシティーβ Ver  
 <img width="527" height="126" alt="スクリーンショット 2026-11-13 003846" src="https://github.com/user-attachments/assets/56d2c876-45bc-4ec1-8852-e5dcd93843fb" />
 
-「いっき」動作しました(AVファミコン実機とFDSkeyでも動作確認)    
+「いっき」動作しました(AVファミコン実機とFDSkeyでも動作確認)  
 
 <img width="301" height="240" alt="Ikki_FDS (4)_001" src="https://github.com/user-attachments/assets/7cc35e61-66bd-42b1-9889-75c4c8ebb8b1" />  
 <img width="301" height="240" alt="Ikki_FDS (4)_002" src="https://github.com/user-attachments/assets/41745f50-7efa-41d2-b26c-8d362fb9ae7a" />  
@@ -30,6 +34,7 @@
 <img width="301" height="240" alt="Ikki_FDS (4)_004" src="https://github.com/user-attachments/assets/23c57955-9d8d-49eb-a3bd-343f6204eecb" />  
 
 バトルシティーも動作しました！！  
+
 <img width="301" height="240" alt="BattleCity_FDS_005" src="https://github.com/user-attachments/assets/87312b69-7519-451d-ac9a-8bd271582806" />
 <img width="301" height="240" alt="BattleCity_FDS_007" src="https://github.com/user-attachments/assets/73bf58de-c1ad-4d64-83f6-8d182524e02f" />
 <img width="301" height="240" alt="BattleCity_FDS_009" src="https://github.com/user-attachments/assets/81028e30-a1f4-4b27-8d54-e39ac5e0b8d1" />
