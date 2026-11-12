@@ -19,6 +19,8 @@
 実ディスク使用するとディスクIDが  
 書き換えられでっち上げIDとなるはずです  
 大事なディスクはバックアップしておいてください  
+動作するROMは創世紀ファミーと同じものです  
+NROM最大PRG-ROM 32KB＋CHR-ROM 8KB(多分  
 
 参考サイト  
 https://www.nesdev.org/wiki/Souseiki_Fammy
