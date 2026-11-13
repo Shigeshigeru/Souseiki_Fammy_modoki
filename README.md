@@ -130,8 +130,13 @@ https://forums.nesdev.org/viewtopic.php?t=26064
 マッパー0(NROM)のリスト  
 https://nesdir.github.io/mapper0.html
 
+BAKUTEDOさんの創世機ファミーの記事(分かりやすい！！)  
+https://bakutendo.net/blog-entry-415.html
+
+# シティコネクションのマッパーの件(別リポジトリで使用すると思います)  
+
 マッパーハックの参考サイト(シティコネクション、ツインビーに言及ありました)    
 https://bootleggames.fandom.com/wiki/Mapper_hack
 
-BAKUTEDOさんの創世機ファミーの記事(分かりやすい！！)  
-https://bakutendo.net/blog-entry-415.html
+シティコネクションのマッパーの件  
+https://nicole.express/2024/city-disconnection.html
