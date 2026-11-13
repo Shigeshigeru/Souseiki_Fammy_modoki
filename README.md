@@ -130,5 +130,8 @@ https://forums.nesdev.org/viewtopic.php?t=26064
 マッパー0(NROM)のリスト  
 https://nesdir.github.io/mapper0.html
 
+マッパーハックの参考サイト(海賊版)    
+https://bootleggames.fandom.com/wiki/Mapper_hack
+
 BAKUTEDOさんの創世機ファミーの記事(分かりやすい！！)  
 https://bakutendo.net/blog-entry-415.html
