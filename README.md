@@ -128,7 +128,7 @@ https://www.nesdev.org/wiki/Souseiki_Fammy
 https://www.nesdev.org/wiki/NROM  
 https://forums.nesdev.org/viewtopic.php?t=26064  
 
-マッパー0(NROM)のリスト  
+マッパー0(NROM)のリスト(もっとあるはずです)    
 https://nesdir.github.io/mapper0.html  
 https://datacrystal.tcrf.net/wiki/Category:NES_games_using_mapper_number_0
 
