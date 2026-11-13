@@ -142,3 +142,8 @@ https://bootleggames.fandom.com/wiki/Mapper_hack
 
 シティコネクションのマッパーの件  
 https://nicole.express/2024/city-disconnection.html
+
+全然関係ない話で恐縮ですがRetroBitのマルチカート吸い出し　　
+無理かと思ってたのですがもしかしてできるのかもしれません  
+コレはコレで調べておきます
+
