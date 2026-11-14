@@ -65,6 +65,11 @@ BIOSと重なるのでその辺りを移動変更させての動作の模様で�
 <img width="256" height="240" alt="Kinnikuman_FDS_003" src="https://github.com/user-attachments/assets/9226d5fb-862b-4d24-8f36-eb474a35cefe" />  
 これを足掛けにキン肉マンマッスルハックマッチ(ハック)も動作するようにします  
 
+**キン肉マンマックルハックマッチもとりあえず動くようになりました！**  
+<img width="256" height="240" alt="KinnikumanHack_FDS_001" src="https://github.com/user-attachments/assets/be2bc187-e443-4282-a036-951046c57e52" />  
+<img width="256" height="240" alt="KinnikumanHack_FDS_002" src="https://github.com/user-attachments/assets/e2d0615f-4e26-4008-916b-06d94ece045a" />  
+<img width="256" height="240" alt="KinnikumanHack_FDS_003" src="https://github.com/user-attachments/assets/1e12c585-43e3-43e0-9c22-f54cc435c327" />  
+
 ## **対応予定とか**    
 ~~**A面バトルシティー、B面バルーンファイトの  
 テンプレートも用意しておきます！！(コレは絶対必須)**~~    
@@ -95,7 +100,8 @@ https://vimm.net/romhacking/hacks/4872
 いっき (ikkij_FDS.fds)  
 バトルシティー (bcityj_FDS.fds)    
 バルーンファイト (bfightj_FDS.fds)  
-キン肉マンマッスルタッグマッチ (とりあえず対応)
+キン肉マンマッスルタッグマッチ (とりあえず対応)  
+キン肉マンマッスルハックマッチ (ハック、とりあえず対応)  
 
 # **不明点、気になること、仕様**  
 自分はディスクシステムBIOSやゲームを自分で吸い出しているので  
