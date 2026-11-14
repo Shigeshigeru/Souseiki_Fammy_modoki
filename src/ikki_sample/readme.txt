@@ -1,3 +1,6 @@
+ikki_to_fds.py  -  いっき (ファミコン カセット版) を ディスクシステム (.fds) に変換する
+
+使い方:
     python3 ikki_to_fds.py --bios disksys.rom  Ikki.nes  [-o Ikki_FDS.fds]
 
   * --bios (FDS BIOS) は必須です。ディスクのライセンス画面データ(KYODAKU-)を
