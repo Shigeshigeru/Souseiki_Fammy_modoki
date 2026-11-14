@@ -6,24 +6,33 @@ ikki_to_fds.py  -  いっき (ファミコン カセット版) を ディスク�
 使い方:
     python3 ikki_to_fds.py --bios disksys.rom  Ikki.nes  [-o Ikki_FDS.fds]
 
-  * --bios (FDS BIOS, 8192 バイト, "disksys.rom") は必須です。
-    ディスクのライセンス画面データ(KYODAKU-)を BIOS から取り出すために使います。
-    BIOS が無い / 壊れている / 想定外のバージョンのときは変換せずに終了します。
+  * --bios (FDS BIOS) は必須です。ディスクのライセンス画面データ(KYODAKU-)を
+    BIOS の中から取り出すために使います。
+  * BIOS の版は問いません (標準版 / ツインファミコン版 など)。
+    ファイルの形式の違い(8192 バイト / iNES ヘッダー付き / 16KB 2 回分)は自動で吸収し、
+    ライセンスデータの位置は BIOS の中から探します。
+    見つからない・壊れている場合は変換せずに終了します。
   * 標準ライブラリだけで動きます (Python 3.6+)。
 
 何をしているか:
-  1. 入力 ROM が「いっき(日本版)」の想定どおりか確認する
+  1. BIOS を読み込んで、ライセンス画面データ(224 バイト)を探す
+  2. 入力 ROM が「いっき(日本版)」の想定どおりか確認する
        (NROM-128 / PRG 16KB / CHR 8KB / 垂直ミラーリング /
         ベクタ NMI=$83FF RESET=$8000 IRQ=$8472 / 修正箇所のバイト列)
-  2. $0100〜$0103 への書き込み 4 箇所を $0130〜$0133 へ付け替える
+  3. $0100〜$0103 への書き込み 4 箇所を $0130〜$0133 へ付け替える
        (FDS BIOS は $0100/$0101 を NMI/IRQ の振り分けに使うため、
         ゲームがそこへ書き込むと NMI が止まって固まる)
-  3. FDS ディスク(片面)を組み立てる
+  4. FDS ディスク(片面)を組み立てる
        KYODAKU- : ライセンス画面 (BIOS から取得, PPU $2800)
        IKKI-CHR : キャラクタ 8KB (PPU $0000)
-       IKKI-PRG : プログラム 16KB ($8000)  ← 手順 2 の修正済み
+       IKKI-PRG : プログラム 16KB ($8000)  ← 手順 3 の修正済み
        IKKI-RST : 起動用の小さなプログラム ($6000)
        VECTORS- : NMI/RESET/IRQ ベクタ ($DFF6〜$DFFF)
+
+オプション:
+  --license-offset 0xNNNN : BIOS 内のライセンスデータの位置を手動で指定する
+                            (自動検出できない特殊な BIOS 用)
+  --strict-bios           : NMI/IRQ の振り分け処理が標準と違う BIOS を拒否する
 """
 
 import argparse
@@ -31,14 +40,29 @@ import hashlib
 import struct
 import sys
 
-# --- 既知の BIOS (disksys.rom) -------------------------------------------------
+# --- BIOS ----------------------------------------------------------------------
 BIOS_SIZE = 8192
-KNOWN_BIOS_MD5 = {"ca30b50f880eb660a320674ed365ef7a": "FDS BIOS (disksys.rom)"}
-LICENSE_OFFSET = 0xED37 - 0xE000      # BIOS 内のライセンス画面データの位置
-LICENSE_SIZE = 224
-# BIOS 内部のフォントコードで "NINTENDO" (N,I,N,T,E,N,D,O)
-LICENSE_TEXT = bytes([0x17, 0x12, 0x17, 0x1D, 0x0E, 0x17, 0x0D, 0x18])
-BIOS_REVERSED_MAGIC = b"*CVH-ODNETNIN*"   # BIOS 内には逆順で入っている
+BIOS_BASE = 0xE000                        # BIOS は CPU の $E000〜$FFFF に見える
+# 登録済みの BIOS (参考表示用。ここに無い版でも、中身が合えば変換できる)
+KNOWN_BIOS_MD5 = {"ca30b50f880eb660a320674ed365ef7a": "標準 FDS BIOS (disksys.rom)"}
+
+LICENSE_SIZE = 224                         # 32 タイル x 7 行
+# 標準のライセンス画面データの SHA-256 (中身そのものは持たず、照合にだけ使う)
+LICENSE_SHA256 = "0ff60f81f193b001ecccc6a280cddba4b99830755aa658c089d566046adfb034"
+# BIOS 内部のフォントコードで書かれた語句 (中身の確認用)
+def _font(s):
+    return bytes(0x24 if c == " " else int(c, 36) for c in s)   # 0-9, A-Z は 0x00〜0x23, 空白は 0x24
+
+PH_NINTENDO = _font("NINTENDO")
+PH_FAMICOM = _font("FAMILY COMPUTER")
+PH_THIS = _font("THIS PRODUCT IS MANUFACTURED")
+PH_LICENSE = _font("LICENSE")
+BIOS_REVERSED_MAGIC = b"*CVH-ODNETNIN*"    # 標準 BIOS 内には逆順で入っている
+
+# NMI/IRQ の振り分け処理 (標準 BIOS)。$0100/$0101 の値で飛び先が決まる
+NMI_PATTERN = bytes.fromhex("2c0001100850036cfadf6cf8df50036cf6df")
+IRQ_HEAD = bytes.fromhex("2c0101301e500b")
+IRQ_TAIL = bytes.fromhex("50036cfedf")
 
 # --- いっき ROM の想定 ---------------------------------------------------------
 PRG_SIZE, CHR_SIZE = 0x4000, 0x2000
@@ -52,37 +76,140 @@ IKKI_PATCHES = [
     (0xA232, bytes([0x8D, 0x00, 0x01]), bytes([0x8D, 0x30, 0x01])),  # STA $0100   -> $0130
 ]
 
+_TAIL_MARK = bytes([0x04, 0x05, 0x06])   # ディスク末尾の識別用
+
 
 class ConvertError(Exception):
     pass
 
 
-def load_bios(path):
-    """BIOS を読み込んで検証し、ライセンス画面データ(224 バイト)を返す。"""
+def normalize_bios(raw):
+    """いろいろな形式の BIOS ダンプを 8192 バイトに揃える。"""
+    n = len(raw)
+    if n == BIOS_SIZE:
+        return raw, "8192 バイト"
+    if n == BIOS_SIZE + 16 and raw[:4] == b"NES\x1a":
+        return raw[16:], "iNES ヘッダー付き (ヘッダーを除去)"
+    if n == BIOS_SIZE * 2 and raw[:BIOS_SIZE] == raw[BIOS_SIZE:]:
+        return raw[:BIOS_SIZE], "16KB (同じ内容が 2 回) (前半を使用)"
+    raise ConvertError(
+        "BIOS のサイズが想定外です: %d バイト\n"
+        "  対応する形式: 8192 バイト / iNES ヘッダー付き(8208) / 同じ内容 2 回分(16384)" % n)
+
+
+def _all_find(data, pat):
+    i = data.find(pat)
+    while i >= 0:
+        yield i
+        i = data.find(pat, i + 1)
+
+
+def find_license_by_hash(bios):
+    """標準のライセンスデータと完全に一致する場所を探す。"""
+    want = LICENSE_SHA256
+    for off in range(0, len(bios) - LICENSE_SIZE + 1):
+        if bios[off] != 0x24:                 # 標準データは必ず 0x24 (空白) から始まる
+            continue
+        if hashlib.sha256(bios[off:off + LICENSE_SIZE]).hexdigest() == want:
+            return off
+    return None
+
+
+def _valid_license_window(bios, s):
+    if s < 0 or s + LICENSE_SIZE > len(bios):
+        return False
+    w = bios[s:s + LICENSE_SIZE]
+    if max(w) > 0x2F:                         # フォントコードだけで出来ているはず
+        return False
+    if w.find(PH_NINTENDO) not in range(0, 32):
+        return False
+    f = w.find(PH_FAMICOM)
+    if not 32 <= f < 64:
+        return False
+    t = w.find(PH_THIS)
+    if not 96 <= t < 128:
+        return False
+    l = w.find(PH_LICENSE)
+    if not 192 <= l < 224:
+        return False
+    return all(b == 0x24 for b in w[64:96])   # 3 行目は空白行
+
+
+def find_license_by_text(bios):
+    """文字(語句)の並びと行の位置関係から、ライセンスデータの場所を推定する。"""
+    cands = set()
+    for p in _all_find(bios, PH_NINTENDO):
+        for row in range(0, 7):
+            for col in range(0, 32):
+                s = p - row * 32 - col
+                if _valid_license_window(bios, s):
+                    cands.add(s)
+    if not cands:
+        return None
+    clean = [s for s in sorted(cands) if s == 0 or bios[s - 1] > 0x2F]   # 前の 1 バイトが別物
+    return (clean or sorted(cands))[0]
+
+
+def check_dispatch(bios):
+    """NMI/IRQ の振り分け処理が標準と同じか確認し、違うときの警告を返す。"""
+    warns = []
+    nmi, _rst, irq = struct.unpack("<3H", bios[0x1FFA:0x2000])
+
+    def at(addr, n):
+        o = addr - BIOS_BASE
+        return bios[o:o + n] if 0 <= o <= len(bios) - n else b""
+
+    if at(nmi, len(NMI_PATTERN)) != NMI_PATTERN:
+        warns.append("NMI の振り分け処理が標準と違います (NMI ベクタ $%04X)" % nmi)
+    h = at(irq, 48)
+    if not (h.startswith(IRQ_HEAD) and IRQ_TAIL in h):
+        warns.append("IRQ の振り分け処理が標準と違います (IRQ ベクタ $%04X)" % irq)
+    return warns
+
+
+def load_bios(path, forced_offset=None):
+    """BIOS を読み込んで検証し、(ライセンスデータ, 情報の辞書) を返す。"""
     try:
         with open(path, "rb") as f:
-            bios = f.read()
+            raw = f.read()
     except OSError as e:
         raise ConvertError("BIOS を開けません: %s (%s)" % (path, e))
 
-    if len(bios) != BIOS_SIZE:
-        raise ConvertError(
-            "BIOS のサイズが違います: %d バイト (8192 バイトの disksys.rom が必要です)" % len(bios))
-
+    bios, form = normalize_bios(raw)
     md5 = hashlib.md5(bios).hexdigest()
-    if md5 not in KNOWN_BIOS_MD5:
+
+    how = None
+    if forced_offset is not None:
+        off = forced_offset
+        if not 0 <= off <= len(bios) - LICENSE_SIZE:
+            raise ConvertError("--license-offset が BIOS の範囲外です: 0x%X" % off)
+        how = "手動指定"
+    else:
+        off = find_license_by_hash(bios)
+        how = "標準データと一致"
+        if off is None:
+            off = find_license_by_text(bios)
+            how = "文字の並びから推定 (標準データとは内容が異なります)"
+    if off is None:
         raise ConvertError(
-            "未知の BIOS です (MD5 %s)。\n"
-            "  ライセンス画面データの位置を確認できないため、変換を中止します。\n"
-            "  標準の FDS BIOS (disksys.rom, MD5 ca30b50f880eb660a320674ed365ef7a) を指定してください。" % md5)
+            "BIOS の中にライセンス画面データが見つかりません。\n"
+            "  FDS の BIOS (disksys.rom など) ではないか、壊れている可能性があります。\n"
+            "  位置が分かる場合は --license-offset 0xNNNN で指定できます。")
 
-    if BIOS_REVERSED_MAGIC not in bios:
-        raise ConvertError("BIOS 内に FDS の識別文字列が見つかりません。")
+    lic = bios[off:off + LICENSE_SIZE]
+    if forced_offset is None and PH_NINTENDO not in lic:
+        raise ConvertError("取り出したデータがライセンス画面ではありません。")
 
-    lic = bios[LICENSE_OFFSET:LICENSE_OFFSET + LICENSE_SIZE]
-    if len(lic) != LICENSE_SIZE or LICENSE_TEXT not in lic:
-        raise ConvertError("BIOS からライセンス画面データを取り出せませんでした。")
-    return lic, md5
+    info = {
+        "md5": md5,
+        "name": KNOWN_BIOS_MD5.get(md5, "未登録の版"),
+        "form": form,
+        "offset": off,
+        "how": how,
+        "magic": BIOS_REVERSED_MAGIC in bios,
+        "warnings": check_dispatch(bios),
+    }
+    return lic, info
 
 
 def load_ikki(path):
@@ -177,6 +304,7 @@ def build_disk(license_data, prg, chr_, vertical):
         assert len(nb) == 8
         side += bytes([3, i, i]) + nb + struct.pack("<HHB", addr, len(data), kind)
         side += bytes([4]) + data
+    side += _TAIL_MARK            # 最後のファイル(VECTORS-)の直後。ファイル数には含めない
     if len(side) > 65500:
         raise ConvertError("ディスクの容量を超えました。")
     side = bytes(side).ljust(65500, b"\0")
@@ -188,14 +316,20 @@ def main(argv=None):
         description="いっき(ファミコン版 .nes) を ディスクシステム(.fds) に変換します。FDS BIOS が必須です。")
     ap.add_argument("rom", help="いっき(日本版)の .nes ファイル")
     ap.add_argument("--bios", required=True,
-                    help="FDS BIOS (disksys.rom, 8192 バイト) ※必須")
+                    help="FDS BIOS (標準版 / ツインファミコン版 など) ※必須")
     ap.add_argument("-o", "--output", help="出力ファイル名 (省略時は ROM 名 + _FDS.fds)")
     ap.add_argument("--mirroring", choices=["header", "vertical", "horizontal"], default="header",
                     help="ミラーリング (既定: ROM ヘッダーに従う。いっきは垂直)")
+    ap.add_argument("--license-offset", type=lambda x: int(x, 0), default=None, metavar="0xNNNN",
+                    help="BIOS 内のライセンスデータの位置を手動で指定する")
+    ap.add_argument("--strict-bios", action="store_true",
+                    help="NMI/IRQ の振り分け処理が標準と違う BIOS を拒否する")
     args = ap.parse_args(argv)
 
     try:
-        license_data, md5 = load_bios(args.bios)
+        license_data, bi = load_bios(args.bios, args.license_offset)
+        if args.strict_bios and bi["warnings"]:
+            raise ConvertError("--strict-bios: " + " / ".join(bi["warnings"]))
         prg, chr_, header_vertical = load_ikki(args.rom)
         vertical = header_vertical if args.mirroring == "header" else (args.mirroring == "vertical")
         prg = patch_prg(prg)
@@ -211,7 +345,16 @@ def main(argv=None):
     with open(out, "wb") as f:
         f.write(disk)
 
-    print("BIOS      : %s (MD5 %s)" % (args.bios, md5))
+    print("BIOS      : %s" % args.bios)
+    print("            MD5 %s  [%s]  形式: %s" % (bi["md5"], bi["name"], bi["form"]))
+    print("            ライセンスデータ: 位置 0x%04X (%s)" % (bi["offset"], bi["how"]))
+    for w in bi["warnings"]:
+        print("  警告    : %s" % w, file=sys.stderr)
+    if bi["warnings"]:
+        print("            ※ このディスクは、この BIOS では動作確認できていません。"
+              "起動しない場合は標準の BIOS をお試しください。", file=sys.stderr)
+    if not bi["magic"]:
+        print("  注意    : BIOS 内に標準の識別文字列がありません (別版の可能性)", file=sys.stderr)
     print("ROM       : %s" % args.rom)
     print("ミラーリング: %s" % ("垂直" if vertical else "水平"))
     print("修正箇所  : %d 箇所 ($0100〜$0103 の書き込みを $0130〜$0133 へ付け替え)" % len(IKKI_PATCHES))
