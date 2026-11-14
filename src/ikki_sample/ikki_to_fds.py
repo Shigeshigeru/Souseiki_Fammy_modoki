@@ -76,7 +76,7 @@ IKKI_PATCHES = [
     (0xA232, bytes([0x8D, 0x00, 0x01]), bytes([0x8D, 0x30, 0x01])),  # STA $0100   -> $0130
 ]
 
-_TAIL_MARK = bytes([0x04, 0x05, 0x06])   # ディスク末尾の識別用
+_TAIL_MARK = bytes([0x44, 0x42, 0x47])   # ディスク末尾の識別用
 
 
 class ConvertError(Exception):
