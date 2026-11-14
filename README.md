@@ -60,7 +60,10 @@ BIOSと重なるのでその辺りを移動変更させての動作の模様で�
 できるようになったので動作確認をやっておきます　　
 
 **キン肉マンマッスルタッグマッチもとりあえず動くようになりました！**  
-これを足掛けにキン肉マンマックルハックマッチ(ハック)も動作するようにします  
+<img width="256" height="240" alt="Kinnikuman_FDS_001" src="https://github.com/user-attachments/assets/5a188d79-02dc-4dd3-9f07-9bd40b87ff49" />
+<img width="256" height="240" alt="Kinnikuman_FDS_002" src="https://github.com/user-attachments/assets/e58f29bd-7489-4c06-a26d-700c924a8b57" />
+<img width="256" height="240" alt="Kinnikuman_FDS_003" src="https://github.com/user-attachments/assets/9226d5fb-862b-4d24-8f36-eb474a35cefe" />  
+これを足掛けにキン肉マンマッスルハックマッチ(ハック)も動作するようにします  
 
 ## **対応予定とか**    
 ~~**A面バトルシティー、B面バルーンファイトの  
