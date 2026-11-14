@@ -100,6 +100,10 @@ BIOSは必須にしないでおこうと思いましたが
 変換用NROMイメージはCHR部分は改変されていても  
 恐らく問題ないはずですがPRG部分はバージョン違いや改変が  
 あると多分変換できません  
+ヘッダ付きのNROMを変換してるのですが吸い出し時の
+ヘッダ作成時に垂直(Vertical)と水平(Horizontal)を  
+間違えてるものが結構ある気がします  
+めんどくさいですが資料にて確認してから作業します    
 変換用のNROMイメージに関しても  
 別メディアからなんとかかんとか(お察しください  
 <img width="301" height="240" alt="Battle_City_jp_001" src="https://github.com/user-attachments/assets/d7544667-00e4-45fc-9f6d-e1de4a87d954" />  
