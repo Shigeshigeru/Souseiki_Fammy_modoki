@@ -166,7 +166,6 @@ https://datacrystal.tcrf.net/wiki/Category:NES_games_using_mapper_number_0
 
 パソファミのサイト  
 安藤さんの大量の解析結果等が現在に繋がっております、ありがとうございました  
-
 https://pasofami.game.coocan.jp/main.htm
 
 BAKUTEDOさんの創世機ファミーの記事(分かりやすい！！)  
