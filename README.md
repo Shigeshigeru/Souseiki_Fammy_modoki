@@ -162,6 +162,11 @@ https://forums.nesdev.org/viewtopic.php?t=26064
 https://nesdir.github.io/mapper0.html  
 https://datacrystal.tcrf.net/wiki/Category:NES_games_using_mapper_number_0
 
+パソファミのサイト  
+安藤さんの大量の解析結果等が現在に繋がっております、ありがとうございました  
+
+https://pasofami.game.coocan.jp/main.htm
+
 BAKUTEDOさんの創世機ファミーの記事(分かりやすい！！)  
 https://bakutendo.net/blog-entry-415.html
 
