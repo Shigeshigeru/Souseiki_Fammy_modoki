@@ -152,6 +152,7 @@ AI無料枠で作業するのでとても時間がかかります
 **大事なディスクはバックアップしておいてください**  
 **動作するROMは創世機ファミーと同じものです  
 NROM最大PRG-ROM 32KB＋CHR-ROM 8KB**(多分  
+PRG-ROM 32KBはかなり大変ですな・・・(´･д･`)  
 
 参考サイト  
 https://www.nesdev.org/wiki/Souseiki_Fammy  
