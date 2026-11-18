@@ -29,21 +29,21 @@ AIのサポートなしでは無理レベルでした・・・(´･д･`)
 (いっきはikkiなので文字数が少なくて問題なかったようです  
 
 いっきβ Ver    
-<img width="526" height="120" alt="スクリーンショット 2026-11-12 205445" src="https://github.com/user-attachments/assets/f0d6d33c-39e0-4f0d-ab27-acfad0921653" />  
+<img width="526" height="120" alt="スクリーンショット 2026-11-12 205445" src="https://github.com/user-attachments/assets/f0d6d33c-39e0-4f0d-ab27-acfad0921653" /><br/> 
 
 バトルシティーβ Ver  
-<img width="527" height="126" alt="スクリーンショット 2026-11-13 003846" src="https://github.com/user-attachments/assets/56d2c876-45bc-4ec1-8852-e5dcd93843fb" />  
+<img width="527" height="126" alt="スクリーンショット 2026-11-13 003846" src="https://github.com/user-attachments/assets/56d2c876-45bc-4ec1-8852-e5dcd93843fb" /><br/>  
 
 「いっき」動作しました(AVファミコン実機とFDSkeyでも動作確認)  
-<img width="301" height="240" alt="Ikki_FDS (4)_001" src="https://github.com/user-attachments/assets/7cc35e61-66bd-42b1-9889-75c4c8ebb8b1" />  
-<img width="301" height="240" alt="Ikki_FDS (4)_002" src="https://github.com/user-attachments/assets/41745f50-7efa-41d2-b26c-8d362fb9ae7a" />  
-<img width="301" height="240" alt="Ikki_FDS (4)_003" src="https://github.com/user-attachments/assets/33c9b805-3048-4a8a-848e-76c32ea015bc" />  
-<img width="301" height="240" alt="Ikki_FDS (4)_004" src="https://github.com/user-attachments/assets/23c57955-9d8d-49eb-a3bd-343f6204eecb" />  
+<img width="301" height="240" alt="Ikki_FDS (4)_001" src="https://github.com/user-attachments/assets/7cc35e61-66bd-42b1-9889-75c4c8ebb8b1" /><br/>  
+<img width="301" height="240" alt="Ikki_FDS (4)_002" src="https://github.com/user-attachments/assets/41745f50-7efa-41d2-b26c-8d362fb9ae7a" /><br/>  
+<img width="301" height="240" alt="Ikki_FDS (4)_003" src="https://github.com/user-attachments/assets/33c9b805-3048-4a8a-848e-76c32ea015bc" /><br/>  
+<img width="301" height="240" alt="Ikki_FDS (4)_004" src="https://github.com/user-attachments/assets/23c57955-9d8d-49eb-a3bd-343f6204eecb" /><br/>  
 
 **バトルシティーも動作しました！！(序盤の動作確認のみ)**  
-<img width="301" height="240" alt="BattleCity_FDS_005" src="https://github.com/user-attachments/assets/87312b69-7519-451d-ac9a-8bd271582806" />  
-<img width="301" height="240" alt="BattleCity_FDS_007" src="https://github.com/user-attachments/assets/73bf58de-c1ad-4d64-83f6-8d182524e02f" />  
-<img width="301" height="240" alt="BattleCity_FDS_009" src="https://github.com/user-attachments/assets/81028e30-a1f4-4b27-8d54-e39ac5e0b8d1" />  
+<img width="301" height="240" alt="BattleCity_FDS_005" src="https://github.com/user-attachments/assets/87312b69-7519-451d-ac9a-8bd271582806" /><br/>  
+<img width="301" height="240" alt="BattleCity_FDS_007" src="https://github.com/user-attachments/assets/73bf58de-c1ad-4d64-83f6-8d182524e02f" /><br/>  
+<img width="301" height="240" alt="BattleCity_FDS_009" src="https://github.com/user-attachments/assets/81028e30-a1f4-4b27-8d54-e39ac5e0b8d1" /><br/>  
 
 こちらは少し複雑だったようです  
 一応動作確認はしましたが自分は特に問題感じませんでした  
@@ -51,9 +51,9 @@ AIのサポートなしでは無理レベルでした・・・(´･д･`)
 BIOSと重なるのでその辺りを移動変更させての動作の模様です  
 
 **バルーンファイトも動くようになりました！**  
-<img width="301" height="240" alt="BalloonFight_FDS_001" src="https://github.com/user-attachments/assets/53a2ef05-8746-4e08-a113-4cfa4a96be25" />  
-<img width="301" height="240" alt="BalloonFight_FDS_002" src="https://github.com/user-attachments/assets/344f365b-09c7-49f2-b84f-408fff6bdb62" />  
-<img width="301" height="240" alt="BalloonFight_FDS_003" src="https://github.com/user-attachments/assets/3d178ad9-4394-40b3-ab13-4d63ece9aacc" />  
+<img width="301" height="240" alt="BalloonFight_FDS_001" src="https://github.com/user-attachments/assets/53a2ef05-8746-4e08-a113-4cfa4a96be25" /><br/>  
+<img width="301" height="240" alt="BalloonFight_FDS_002" src="https://github.com/user-attachments/assets/344f365b-09c7-49f2-b84f-408fff6bdb62" /><br/>  
+<img width="301" height="240" alt="BalloonFight_FDS_003" src="https://github.com/user-attachments/assets/3d178ad9-4394-40b3-ab13-4d63ece9aacc" /><br/>  
 
 バルーンファイトは簡単だと思ってたのですが  
 そんなこともなかったです  
@@ -63,15 +63,15 @@ BIOSと重なるのでその辺りを移動変更させての動作の模様で�
 できるようになったので動作確認をやっておきます　　
 
 **キン肉マンマッスルタッグマッチもとりあえず動くようになりました！**  
-<img width="256" height="240" alt="Kinnikuman_FDS_001" src="https://github.com/user-attachments/assets/5a188d79-02dc-4dd3-9f07-9bd40b87ff49" />  
-<img width="256" height="240" alt="Kinnikuman_FDS_002" src="https://github.com/user-attachments/assets/e58f29bd-7489-4c06-a26d-700c924a8b57" />  
-<img width="256" height="240" alt="Kinnikuman_FDS_003" src="https://github.com/user-attachments/assets/9226d5fb-862b-4d24-8f36-eb474a35cefe" />   
+<img width="256" height="240" alt="Kinnikuman_FDS_001" src="https://github.com/user-attachments/assets/5a188d79-02dc-4dd3-9f07-9bd40b87ff49" /><br/>  
+<img width="256" height="240" alt="Kinnikuman_FDS_002" src="https://github.com/user-attachments/assets/e58f29bd-7489-4c06-a26d-700c924a8b57" /><br/>  
+<img width="256" height="240" alt="Kinnikuman_FDS_003" src="https://github.com/user-attachments/assets/9226d5fb-862b-4d24-8f36-eb474a35cefe" /><br/>   
 これを足掛けにキン肉マンマッスルハックマッチ(ハック)も動作するようにします  
 
 **キン肉マンマッスルハックマッチもとりあえず動くようになりました！**  
-<img width="256" height="240" alt="KinnikumanHack_FDS_001" src="https://github.com/user-attachments/assets/be2bc187-e443-4282-a036-951046c57e52" />  
-<img width="256" height="240" alt="KinnikumanHack_FDS_002" src="https://github.com/user-attachments/assets/e2d0615f-4e26-4008-916b-06d94ece045a" />  
-<img width="256" height="240" alt="KinnikumanHack_FDS_003" src="https://github.com/user-attachments/assets/1e12c585-43e3-43e0-9c22-f54cc435c327" />  
+<img width="256" height="240" alt="KinnikumanHack_FDS_001" src="https://github.com/user-attachments/assets/be2bc187-e443-4282-a036-951046c57e52" /><br/>  
+<img width="256" height="240" alt="KinnikumanHack_FDS_002" src="https://github.com/user-attachments/assets/e2d0615f-4e26-4008-916b-06d94ece045a" /><br/>  
+<img width="256" height="240" alt="KinnikumanHack_FDS_003" src="https://github.com/user-attachments/assets/1e12c585-43e3-43e0-9c22-f54cc435c327" /><br/>  
 
 ## **対応予定とか**    
 ~~**A面バトルシティー、B面バルーンファイトの  
@@ -137,7 +137,7 @@ BIOSに関してはどれか一つ持っていればなんでもいいです
 変換用のNROMイメージに関しても  
 別メディアからなんとかかんとか(お察しください  
 改変やバージョン違いに関しては基本的に対応はしません  
-<img width="301" height="240" alt="Battle_City_jp_001" src="https://github.com/user-attachments/assets/d7544667-00e4-45fc-9f6d-e1de4a87d954" />  
+<img width="301" height="240" alt="Battle_City_jp_001" src="https://github.com/user-attachments/assets/d7544667-00e4-45fc-9f6d-e1de4a87d954" /><br/>  
 下記にも書いていますがNROM(マッパー0)以外の  
 変換は無理です**
   
